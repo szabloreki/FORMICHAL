@@ -10,10 +10,9 @@
 	<link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="css/fontello.css" type="text/css" />
     <link rel="stylesheet" href="style-menu.css" type="text/css" />
+    <link rel="stylesheet" href="style-Lists.css" type="text/css" />
 </head>
-
 <body>
-
 	<div id="container">    
         <div  id = "menu">
             <div id = "work" class = "item"> <i class ="icon-flag-filled"></i></div>
@@ -24,10 +23,10 @@
         </div>
         <div id = "list-work" >
             <ol>
-                <li>ugotuj obiad  Tick/False</li>
-                <li>zjedz siostrę  Tick/False</li>
-                <li>posprzątak pokój  Tick/False</li>
-                <li>napisz kod  Tick/False</li>
+                <li>ugotuj obiad     <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel" style = "color: red;"></i> </li>
+                <li>zjedz siostrę    <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
+                <li>posprzątak pokój <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
+                <li>napisz kod       <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
             </ol>
         </div>
         <div id = "list-work-time" >
@@ -46,11 +45,15 @@
                 <li>Ilość zadań z określoną ilością czasu:</li>
             </ol>
         </div>
+        <div id = "add">
+           <form>    
+            Nowe Zadanie: <input type="text" id = "getValue" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'" >
+            </form>            
+            <div style = "clear: both;"></div>
+           <i class= "icon-ok" id="check" style = "color: green; font-size: 40px;"></i>
+        </div>
 	</div>
-	
 </body>
-    
-    
 <script>
 //Menu     
 let work =  document.querySelector('#work');   
@@ -60,26 +63,50 @@ let addNew =  document.querySelector('#addNew');
     
     
 let listWork = document.querySelector('#list-work');
-    console.log(listWork);
 let listWorkTime = document.querySelector('#list-work-time');
 let listStatistic = document.querySelector('#list-statistic');
+let listAdd = document.querySelector('#add');
+let Ok = document.querySelector('#check').addEventListener('click',function(){
+        test();
     
+},false)    
+function test (){
+    let val = document.querySelector('#getValue').value;
+    console.log(val);
+    let ol = document.querySelector('#list-work > ol');
+    let element = document.createElement('li');
+    element.textContent = val;
+    ol.appendChild(element);
     
-
-        
+}  
 class Click {
-    
     workClick (){
         listWork.style.display = 'block';
+        listWorkTime.style.display = 'none';
+        listStatistic.style.display = 'none';
+        listAdd.style.display = 'none';
+
     }
     timeWorkClick (){
         listWorkTime.style.display = 'block';
+        listWork.style.display = 'none';
+        listStatistic.style.display = 'none';
+        listAdd.style.display = 'none';
+
     }
     statisticClick (){
         listStatistic.style.display = 'block';
+        listWorkTime.style.display = 'none';
+        listWork.style.display = 'none';
+        listAdd.style.display = 'none';
+
     }
     addNewClick (){
         console.log('a');
+        listAdd.style.display = 'block';
+        listWork.style.display = 'none';
+        listWorkTime.style.display = 'none';
+        listStatistic.style.display = 'none';
     }
 }    
     
@@ -90,7 +117,4 @@ timeWork.addEventListener('click',click.timeWorkClick,false);
 statistic.addEventListener('click',click.statisticClick,false);    
 addNew.addEventListener('click',click.addNewClick,false);        
 </script>    
-    
-    
-    
 </html>
