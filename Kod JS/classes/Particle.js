@@ -40,12 +40,11 @@ class setUpParticles {
          p.y += p.yVel;  
    }
       loopParticle(){
-            let that = this;    
             //create();
-              particles.forEach(function (p){
-              that.fadeParticle(p);
-              that.moveParticle(p);
-              that.drawParticle(p);
+              particles.forEach((p) =>{
+              this.fadeParticle(p);
+              this.moveParticle(p);
+              this.drawParticle(p);
           })    
         }
       createParticle(x,y){
