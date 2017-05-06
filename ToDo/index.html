@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+	<link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontello.css" type="text/css" />
+    <link rel="stylesheet" href="style-menu.css" type="text/css" />
+</head>
+
+<body>
+
+	<div id="container">    
+        <div  id = "menu">
+            <div id = "work" class = "item"> <i class ="icon-flag-filled"></i></div>
+            <div id = "timeWork" class = "item"><i class ="icon-clock"></i></div>
+            <div id = "statistic" class ="item"><i class ="icon-glass"></i></div>
+            <div id = "addNew" class = "item"><i class ="icon-plus"></i></div>
+            <div style = "clear: both;" ></div>
+        </div>
+        <div id = "list-work" >
+            <ol>
+                <li>ugotuj obiad  Tick/False</li>
+                <li>zjedz siostrę  Tick/False</li>
+                <li>posprzątak pokój  Tick/False</li>
+                <li>napisz kod  Tick/False</li>
+            </ol>
+        </div>
+        <div id = "list-work-time" >
+           <ol>
+                <li>oddaj project time-left:</li>
+                <li>popraw kod i wyślij  time-left:</li>
+                <li>wykonaj chalenge  time-left:</li>
+                <li>napisz x liń kodu  time-left:</li>
+            </ol>
+        </div>
+        <div id = "list-statistic" >
+            <ol>
+                <li>Ilość wykonanych zadań:</li>
+                <li>Ilość porzuconych zadań:</li>
+                <li>Ilość wszystkich wpisanych zadań:</li>
+                <li>Ilość zadań z określoną ilością czasu:</li>
+            </ol>
+        </div>
+	</div>
+	
+</body>
+    
+    
+<script>
+//Menu     
+let work =  document.querySelector('#work');   
+let timeWork =  document.querySelector('#timeWork'); 
+let statistic =  document.querySelector('#statistic');   
+let addNew =  document.querySelector('#addNew');
+    
+    
+let listWork = document.querySelector('#list-work');
+    console.log(listWork);
+let listWorkTime = document.querySelector('#list-work-time');
+let listStatistic = document.querySelector('#list-statistic');
+    
+    
+
+        
+class Click {
+    
+    workClick (){
+        listWork.style.display = 'block';
+    }
+    timeWorkClick (){
+        listWorkTime.style.display = 'block';
+    }
+    statisticClick (){
+        listStatistic.style.display = 'block';
+    }
+    addNewClick (){
+        console.log('a');
+    }
+}    
+    
+let click = new Click();    
+    
+work.addEventListener('click',click.workClick,false);
+timeWork.addEventListener('click',click.timeWorkClick,false);    
+statistic.addEventListener('click',click.statisticClick,false);    
+addNew.addEventListener('click',click.addNewClick,false);        
+</script>    
+    
+    
+    
+</html>

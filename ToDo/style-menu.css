@@ -1,0 +1,33 @@
+.item
+{
+    float: left;
+    width: 248px;
+    background-color: grey;
+    height: 100px;
+    border-right: 2px solid black;
+    font-size: 90px;
+    text-align: center;
+}
+.item:hover
+{
+    background-color: lightgray;    
+}
+
+
+#work
+{
+    color: brown;
+}
+#timeWork
+{
+    color:bisque;
+
+}
+#statistic
+{
+    color: yellow;
+}
+#addNew
+{
+    color: greenyellow;
+}
