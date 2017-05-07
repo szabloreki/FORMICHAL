@@ -6,7 +6,6 @@
 	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
 	<meta name="keywords" content="css, odcinek" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		
 	<link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="css/fontello.css" type="text/css" />
     <link rel="stylesheet" href="style-menu.css" type="text/css" />
@@ -21,12 +20,13 @@
             <div id = "addNew" class = "item"><i class ="icon-plus"></i></div>
             <div style = "clear: both;" ></div>
         </div>
-        <div id = "list-work" >
+        <div id = "list-work">
             <ol>
-                <li>ugotuj obiad     <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel" style = "color: red;"></i> </li>
-                <li>zjedz siostrę    <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
-                <li>posprzątak pokój <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
-                <li>napisz kod       <i class= "icon-ok" style = "color: green;"></i> <i class="icon-cancel"  style = "color: red;"></i></li>
+    <li><div class = "element-list">zadanie do wykonania</div>  <div class = "list-ok"><i class="icon-ok"></i></div><div class = "list-cross"><i class ="icon-cancel"></i></div>
+                </li>
+      <li><div class = "element-list">zadanie do wykonania</div>  <div class = "list-ok"><i class="icon-ok"></i></div><div class = "list-cross"><i class ="icon-cancel"></i></div>
+                </li>           
+                <div style = "clear: both;"></div>
             </ol>
         </div>
         <div id = "list-work-time" >
@@ -53,6 +53,7 @@
            <i class= "icon-ok" id="check" style = "color: green; font-size: 40px;"></i>
         </div>
 	</div>
+    <div id = "test">aaaaaaaa</div>
 </body>
 <script>
 //Menu     
@@ -61,24 +62,12 @@ let timeWork =  document.querySelector('#timeWork');
 let statistic =  document.querySelector('#statistic');   
 let addNew =  document.querySelector('#addNew');
     
-    
 let listWork = document.querySelector('#list-work');
 let listWorkTime = document.querySelector('#list-work-time');
 let listStatistic = document.querySelector('#list-statistic');
 let listAdd = document.querySelector('#add');
-let Ok = document.querySelector('#check').addEventListener('click',function(){
-        test();
+let test = document.querySelector('#test');
     
-},false)    
-function test (){
-    let val = document.querySelector('#getValue').value;
-    console.log(val);
-    let ol = document.querySelector('#list-work > ol');
-    let element = document.createElement('li');
-    element.textContent = val;
-    ol.appendChild(element);
-    
-}  
 class Click {
     workClick (){
         listWork.style.display = 'block';
@@ -108,10 +97,27 @@ class Click {
         listWorkTime.style.display = 'none';
         listStatistic.style.display = 'none';
     }
-}    
+}
+class Add {
     
+    addWork(){
+        let val = document.querySelector('#getValue').value;
+        console.log(val);
+        let ol = document.querySelector('#list-work > ol');
+        ol.innerHTML += doIt(val);
+    }
+}
+    
+ function doIt(text){
+          let string = `<li>   <div class = "element-list"> ${text}</div>
+                    <div class = "list-ok"> <i class ="icon-ok"> </i> </div>
+                    <div class = "list-cross"> <i class= "icon-cancel"> </i> </div> 
+                </li>`
+          return string;
+    }
+let add = new Add();
+let Ok = document.querySelector('#check').addEventListener('click',add.addWork,false);    
 let click = new Click();    
-    
 work.addEventListener('click',click.workClick,false);
 timeWork.addEventListener('click',click.timeWorkClick,false);    
 statistic.addEventListener('click',click.statisticClick,false);    

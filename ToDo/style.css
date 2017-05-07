@@ -20,44 +20,6 @@ body
     -moz-box-shadow: 5px 5px 30px 5px rgba(204,204,204,0.9);
     box-shadow: 5px 5px 30px 5px rgba(204,204,204,0.9); */
 }
-#list-work
-{
-    display: none;
-    
-}
-
-#list-work > ol > li
-{
-    border: 1px solid #22b433;
-    font-size: 35px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    background-color: #e9f3e9;
-    margin-top: 10px;
-}
-#list-work > ol > li:hover
-{
-    background-color: lightgray;
-}
-#list-work-time > ol > li
-{
-    background-color: gray;
-    border: 1px solid #22b433;
-}
-#list-work-time
-{
-    display:none;
-}
-#list-statistic
-{
-    display: none;
-}
-
-
-
-
-
-
 
 
 
