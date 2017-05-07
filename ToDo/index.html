@@ -21,16 +21,12 @@
             <div style = "clear: both;" ></div>
         </div>
         <div id = "list-work">
-            <ol>
-    <li><div class = "element-list">zadanie do wykonania</div>  <div class = "list-ok"><i class="icon-ok"></i></div><div class = "list-cross"><i class ="icon-cancel"></i></div>
-                </li>
-      <li><div class = "element-list">zadanie do wykonania</div>  <div class = "list-ok"><i class="icon-ok"></i></div><div class = "list-cross"><i class ="icon-cancel"></i></div>
-                </li>           
+            <ol class ="list">
                 <div style = "clear: both;"></div>
             </ol>
         </div>
         <div id = "list-work-time" >
-           <ol>
+           <ol >
                 <li>oddaj project time-left:</li>
                 <li>popraw kod i wyślij  time-left:</li>
                 <li>wykonaj chalenge  time-left:</li>
@@ -102,19 +98,29 @@ class Add {
     
     addWork(){
         let val = document.querySelector('#getValue').value;
-        console.log(val);
-        let ol = document.querySelector('#list-work > ol');
-        ol.innerHTML += doIt(val);
-    }
-}
-    
- function doIt(text){
-          let string = `<li>   <div class = "element-list"> ${text}</div>
+        let li = document.createElement('li');
+        let string = `  <div class = "element-list"> ${val}</div>
                     <div class = "list-ok"> <i class ="icon-ok"> </i> </div>
                     <div class = "list-cross"> <i class= "icon-cancel"> </i> </div> 
-                </li>`
-          return string;
+                `
+        li.innerHTML = string;
+        let Ok = li.querySelector('.icon-ok');
+        let cancel = li.querySelector('.icon-cancel'); 
+        Ok.addEventListener('click',function(){          
+            removeWork(this);
+                            },false)
+        cancel.addEventListener('click',function(){},false);
+        let ol = document.querySelector('#list-work > ol');
+        ol.appendChild(li);
     }
+}
+ function removeWork (cancel){
+     let  li = cancel.closest('li');
+     let parentLi = li.closest('ol')
+     console.log(li);
+     let list = document.querySelector('.list');
+     list.removeChild(li);
+ }   
 let add = new Add();
 let Ok = document.querySelector('#check').addEventListener('click',add.addWork,false);    
 let click = new Click();    
