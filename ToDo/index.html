@@ -12,121 +12,108 @@
     <link rel="stylesheet" href="style-Lists.css" type="text/css" />
 </head>
 <body>
-	<div id="container">    
-        <div  id = "menu">
-            <div id = "work" class = "item"> <i class ="icon-flag-filled"></i></div>
-            <div id = "timeWork" class = "item"><i class ="icon-clock"></i></div>
-            <div id = "statistic" class ="item"><i class ="icon-glass"></i></div>
-            <div id = "addNew" class = "item"><i class ="icon-plus"></i></div>
-            <div style = "clear: both;" ></div>
-        </div>
-        <div id = "list-work">
-            <ol class ="list">
-                <div style = "clear: both;"></div>
-            </ol>
-        </div>
-        <div id = "list-work-time" >
-           <ol >
-                <li>oddaj project time-left:</li>
-                <li>popraw kod i wyślij  time-left:</li>
-                <li>wykonaj chalenge  time-left:</li>
-                <li>napisz x liń kodu  time-left:</li>
-            </ol>
-        </div>
-        <div id = "list-statistic" >
-            <ol>
-                <li>Ilość wykonanych zadań:</li>
-                <li>Ilość porzuconych zadań:</li>
-                <li>Ilość wszystkich wpisanych zadań:</li>
-                <li>Ilość zadań z określoną ilością czasu:</li>
-            </ol>
-        </div>
-        <div id = "add">
-           <form>    
-            Nowe Zadanie: <input type="text" id = "getValue" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'" >
-            </form>            
-            <div style = "clear: both;"></div>
-           <i class= "icon-ok" id="check" style = "color: green; font-size: 40px;"></i>
-        </div>
+	<div id="container">
+        <div id ="menu">
+    <form>     
+    </form>
+    </div>
 	</div>
-    <div id = "test">aaaaaaaa</div>
 </body>
 <script>
 //Menu     
-let work =  document.querySelector('#work');   
-let timeWork =  document.querySelector('#timeWork'); 
-let statistic =  document.querySelector('#statistic');   
-let addNew =  document.querySelector('#addNew');
+let PEOPLE  = [];
     
-let listWork = document.querySelector('#list-work');
-let listWorkTime = document.querySelector('#list-work-time');
-let listStatistic = document.querySelector('#list-statistic');
-let listAdd = document.querySelector('#add');
-let test = document.querySelector('#test');
-    
-class Click {
-    workClick (){
-        listWork.style.display = 'block';
-        listWorkTime.style.display = 'none';
-        listStatistic.style.display = 'none';
-        listAdd.style.display = 'none';
-
-    }
-    timeWorkClick (){
-        listWorkTime.style.display = 'block';
-        listWork.style.display = 'none';
-        listStatistic.style.display = 'none';
-        listAdd.style.display = 'none';
-
-    }
-    statisticClick (){
-        listStatistic.style.display = 'block';
-        listWorkTime.style.display = 'none';
-        listWork.style.display = 'none';
-        listAdd.style.display = 'none';
-
-    }
-    addNewClick (){
-        console.log('a');
-        listAdd.style.display = 'block';
-        listWork.style.display = 'none';
-        listWorkTime.style.display = 'none';
-        listStatistic.style.display = 'none';
+ class People {
+     constructor (){
+         
+     }
+     addHuman (name){
+         let human = {
+             name: name,
+             work : [],
+             checkIfWorkExisted : function(work,arrayWork){
+                 for(let i =0; i < arrayWork.length; i++){
+                     
+                     if(arrayWork[i] === work){
+                         console.log('Debilu on ma już tą robotę, kompletnie nie umiesz, zarządzać, dobrze, że masz ten system!');
+                         return false;
+                        }
+                    }
+                 
+               return true;   
+             }   
+         }
+         PEOPLE.push(human);
+     }
+     addWork (){
+         
+     }
+ }  
+  let people = new People();
+ people.addHuman('John');
+ people.addHuman('Lidia');
+ people.addHuman('Guziur');
+ console.log(PEOPLE);
+  function showName (){
+      
+      for(let i =0; i<PEOPLE.length; i++){
+          console.log(PEOPLE[i].name)
+      }
+  }
+  function addWork (human,work){
+      
+      for (let number  =0; number< PEOPLE.length; number++){
+        
+          for (let i =0; i< human.length ; i++){
+              
+                if(PEOPLE[number].name === human[i]){
+                    
+                    if(PEOPLE[number].checkIfWorkExisted(work, PEOPLE[number].work))
+                        {
+                            PEOPLE[number].work.push(work);
+                            console.log(PEOPLE[number].name   + ' Dostał robotę' + ' ' + PEOPLE[number].work)  
+                        }
+                }   
+          }
+      }      
+  }
+function checkWork (name){
+    for( let i =0; i<PEOPLE.length; i++){
+        if(PEOPLE[i].name === name){
+            console.log(PEOPLE[i].name + ' ma robotę: ' + PEOPLE[i].work)
+        }
     }
 }
-class Add {
     
-    addWork(){
-        let val = document.querySelector('#getValue').value;
-        let li = document.createElement('li');
-        let string = `  <div class = "element-list"> ${val}</div>
-                    <div class = "list-ok"> <i class ="icon-ok"> </i> </div>
-                    <div class = "list-cross"> <i class= "icon-cancel"> </i> </div> 
-                `
-        li.innerHTML = string;
-        let Ok = li.querySelector('.icon-ok');
-        let cancel = li.querySelector('.icon-cancel'); 
-        Ok.addEventListener('click',function(){          
-            removeWork(this);
-                            },false)
-        cancel.addEventListener('click',function(){},false);
-        let ol = document.querySelector('#list-work > ol');
-        ol.appendChild(li);
+function checkIfExisting (name){
+      for( let i =0; i<PEOPLE.length; i++){
+        
+        if(PEOPLE[i].name === name){
+            console.log(PEOPLE[i].name + ' istnieje');
+                    return;
+        }
+    }    
+    console.log('Nie ma nikogo o takim imienu');
+}
+function checkWhoisDoingWork(work){
+
+    for(let i =0; i<PEOPLE.length; i++){
+        
+        for (let works = 0; works < PEOPLE[i].work.length; works ++){
+            
+            if(PEOPLE[i].work[works] === work){
+                console.log(PEOPLE[i].name + ' aktualnie wykonuje ta pracę');
+                continue;
+            }
+        }
     }
 }
- function removeWork (cancel){
-     let  li = cancel.closest('li');
-     let parentLi = li.closest('ol')
-     console.log(li);
-     let list = document.querySelector('.list');
-     list.removeChild(li);
- }   
-let add = new Add();
-let Ok = document.querySelector('#check').addEventListener('click',add.addWork,false);    
-let click = new Click();    
-work.addEventListener('click',click.workClick,false);
-timeWork.addEventListener('click',click.timeWorkClick,false);    
-statistic.addEventListener('click',click.statisticClick,false);    
-addNew.addEventListener('click',click.addNewClick,false);        
+function showEveryName (){
+    
+    for(let i =0; i<PEOPLE.length; i++){
+        console.log(PEOPLE[i].name);
+    }
+}    
+showName();  
 </script>    
 </html>
