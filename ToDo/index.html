@@ -12,108 +12,53 @@
     <link rel="stylesheet" href="style-Lists.css" type="text/css" />
 </head>
 <body>
-	<div id="container">
-        <div id ="menu">
-    <form>     
+	<div id="container" style = "margin-right: auto;">
+    <form> 
+          Wpisz Użytkownika do dodania <input type = "text"  id= "AddUserText">  <input type = "button" value = "Dodaj" id = "AddUser">
+    </form> 
+    <form> 
+          Dodaj Pracę dla użytkownika  <input type = "text" >    <input type = "text"  placeholder="co ma zrobić?"> <input type = "button" value = "Dodaj">
+    </form>  
+        
+    <form> 
+          Sprawdź jaką pracę wykonuje, pracownik <input type = "text" >  <input type = "button" value = "Sprawdź">
     </form>
+        
+     <form> 
+        <input type = "button" value = "Pokaż wszystkich pracowników" id = "CheckWorkers">
+    </form> 
+        
+    <form> 
+        <input type = "button" value = "Pokaż wykonywane prace">
+    </form>    
     </div>
-	</div>
+    
+    <div id = 'content'>
+        <ol id ="listOfElements">
+        </ol>
+    </div>
 </body>
+    
+    <script src ="js/AddEventListeners.js"> </script>
+    <script src ="js/People.js"> </script>
+    <script src = "js/NewTask.js"></script>
+    <script src ="js/RemoveTask.js" ></script>
+    
+    
+    
+    
+    
 <script>
+    
+    
+    
 //Menu     
-let PEOPLE  = [];
     
- class People {
-     constructor (){
-         
-     }
-     addHuman (name){
-         let human = {
-             name: name,
-             work : [],
-             checkIfWorkExisted : function(work,arrayWork){
-                 for(let i =0; i < arrayWork.length; i++){
-                     
-                     if(arrayWork[i] === work){
-                         console.log('Debilu on ma już tą robotę, kompletnie nie umiesz, zarządzać, dobrze, że masz ten system!');
-                         return false;
-                        }
-                    }
-                 
-               return true;   
-             }   
-         }
-         PEOPLE.push(human);
-     }
-     addWork (){
-         
-     }
- }  
-  let people = new People();
- people.addHuman('John');
- people.addHuman('Lidia');
- people.addHuman('Guziur');
- console.log(PEOPLE);
-  function showName (){
-      
-      for(let i =0; i<PEOPLE.length; i++){
-          console.log(PEOPLE[i].name)
-      }
-  }
-  function addWork (human,work){
-      
-      for (let number  =0; number< PEOPLE.length; number++){
-        
-          for (let i =0; i< human.length ; i++){
-              
-                if(PEOPLE[number].name === human[i]){
-                    
-                    if(PEOPLE[number].checkIfWorkExisted(work, PEOPLE[number].work))
-                        {
-                            PEOPLE[number].work.push(work);
-                            console.log(PEOPLE[number].name   + ' Dostał robotę' + ' ' + PEOPLE[number].work)  
-                        }
-                }   
-          }
-      }      
-  }
-function checkWork (name){
-    for( let i =0; i<PEOPLE.length; i++){
-        if(PEOPLE[i].name === name){
-            console.log(PEOPLE[i].name + ' ma robotę: ' + PEOPLE[i].work)
-        }
-    }
-}
     
-function checkIfExisting (name){
-      for( let i =0; i<PEOPLE.length; i++){
-        
-        if(PEOPLE[i].name === name){
-            console.log(PEOPLE[i].name + ' istnieje');
-                    return;
-        }
-    }    
-    console.log('Nie ma nikogo o takim imienu');
-}
-function checkWhoisDoingWork(work){
+    
+    
+    
 
-    for(let i =0; i<PEOPLE.length; i++){
-        
-        for (let works = 0; works < PEOPLE[i].work.length; works ++){
-            
-            if(PEOPLE[i].work[works] === work){
-                console.log(PEOPLE[i].name + ' aktualnie wykonuje ta pracę');
-                continue;
-            }
-        }
-    }
-}
-function showEveryName (){
     
-    for(let i =0; i<PEOPLE.length; i++){
-        console.log(PEOPLE[i].name);
-    }
-}    
-showName();  
 </script>    
 </html>
