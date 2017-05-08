@@ -14,20 +14,16 @@
 }
 
 
-#work
-{
-    color: brown;
-}
-#timeWork
-{
-    color:bisque;
 
-}
-#statistic
+#menu
 {
-    color: yellow;
+    width: 500px;
+    min-height: 100px;
+    background-color: aqua;
 }
-#addNew
+.checkWork
 {
-    color: greenyellow;
+    width: 50px;
+    height: 20px;
+    
 }
