@@ -2,34 +2,33 @@ body
 {   /* ========================================================
  This pattern is downloaded from www.subtlepatterns.com 
  If you need more, that's where to */
+    margin: 0;
+    padding: 0;
     background-image: url(img/pow-star.png);
     font-size: 20px;
 }
 #container
 {
+   	margin-left: auto;
+	margin-right: auto;
     width: 1000px;
-    height: 100%:
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-box-shadow: 6px 10px 22px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 10px 22px -1px rgba(0,0,0,0.75);
-    box-shadow: 6px 10px 22px -1px rgba(0,0,0,0.75);
-   /* -webkit-box-shadow: 5px 5px 30px 5px rgba(204,204,204,0.9);
-    -moz-box-shadow: 5px 5px 30px 5px rgba(204,204,204,0.9);
-    box-shadow: 5px 5px 30px 5px rgba(204,204,204,0.9); */
+    min-height: 100px;
+    background-color: wheat;
+    text-align: center;
+    margin-top: 200px;
 }
-
-
-
-
-
-
-
-
-
-
-
+.btn
+{
+    
+}
+.workers
+{
+    border-radius: 10px green;
+    background-color: #333444;
+    padding: 10px 0;
+    border: 1px solid grey;
+    
+}
 
 
 
