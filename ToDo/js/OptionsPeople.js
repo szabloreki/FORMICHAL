@@ -25,7 +25,7 @@ class OptionsPeople {
  checkWork (name){
     for( let i =0; i<people.length; i++){
         if(people[i].name === name){
-            console.log(people[i].name + ' ma robotę: ' + people[i].work)
+            console.log(people[i].name + ' ma robotę: ' + people[i].work);
         }
     }
 }
