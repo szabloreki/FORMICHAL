@@ -6,6 +6,8 @@ class Listeners {
         this.userNameWork = document.querySelector('#UserNameWork');
         this.workText = document.querySelector('#WorkText');
         this.addWork = document.querySelector('#AddWork');
+        this.User = document.querySelector('#User');
+        this.UserWork = document.querySelector('#CheckUser');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -41,3 +43,13 @@ listener.addListener(listener.addWork, function (){
     console.log(this);
     optionsPeople.addWork(arrayName,workString);
 })
+
+
+listener.addListener(listener.UserWork, function(){
+    let UserName = listener.User.value;
+    optionsPeople.checkWork(UserName);
+    let arrayWork = genereteDOM.work(UserName);
+    gui.showWork(arrayWork);
+})
+
+
