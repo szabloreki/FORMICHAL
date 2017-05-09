@@ -52,6 +52,18 @@ class OptionsPeople {
     for(let i =0; i<people.length; i++){
         console.log(people[i].name);
     } 
-}         
+}
+    
+ removeUser (name){
+     for(let i=0; i < people.length; i++){
+         if(people[i].name === name){
+             people.splice(i, 1);
+             console.log(people);
+             break;
+             return;
+         }
+     }
+     console.log('Użytkownik, którego podałeś nie istnieje!');
+ }
 }
 let optionsPeople =  new OptionsPeople();

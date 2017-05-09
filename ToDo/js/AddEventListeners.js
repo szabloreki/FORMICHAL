@@ -8,6 +8,9 @@ class Listeners {
         this.addWork = document.querySelector('#AddWork');
         this.User = document.querySelector('#User');
         this.UserWork = document.querySelector('#CheckUser');
+        this.allWorks = document.querySelector('#AllWorks');
+        this.removeUserText = document.querySelector('#RemoveUserText');
+        this.removeUser = document.querySelector('#RemoveUser');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -50,6 +53,21 @@ listener.addListener(listener.UserWork, function(){
     optionsPeople.checkWork(UserName);
     let arrayWork = genereteDOM.work(UserName);
     gui.showWork(arrayWork);
+})
+
+listener.addListener(listener.allWorks, function (){
+    console.log(this);
+    let ArrayDOM = genereteDOM.allWorks();
+    gui.showDOM(ArrayDOM);
+})
+
+listener.addListener(listener.removeUser, function (){
+    let name = listener.removeUserText.value;
+    if(name === ""){
+        console.log('Nie podałeś nic!');
+        return;
+    }
+    optionsPeople.removeUser(name);
 })
 
 

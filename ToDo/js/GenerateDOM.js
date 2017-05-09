@@ -24,5 +24,15 @@ class GenerateDOM {
           } 
          return workArray;
         }
+        allWorks () {
+        let allWorks = [];    
+            for(let i=0; i< people.length; i++){
+            let  works = people[i].work;
+            let string = `<li class ="workers">${works}</li>`;
+            allWorks.push(string);
+            }
+            return allWorks;
+        }
+
     }
 let  genereteDOM = new GenerateDOM();    
