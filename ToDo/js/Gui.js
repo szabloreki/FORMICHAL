@@ -15,14 +15,14 @@ class Gui {
             ol.innerHTML += nameList;
         }
     }
-    
-    
     showDOM(Array){
         this.clear();
         let  ol = document.querySelector('#listOfElements');
         for(let i=0; i<Array.length; i++){
-            let nameList = Array[i]
-            ol.innerHTML += nameList;
+            let li = document.createElement('li');
+            listener.targeting(li);
+            li.innerHTML = Array[i];
+            ol.appendChild(li);
         }
     }
     clear () {

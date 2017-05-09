@@ -11,6 +11,7 @@ class Listeners {
         this.allWorks = document.querySelector('#AllWorks');
         this.removeUserText = document.querySelector('#RemoveUserText');
         this.removeUser = document.querySelector('#RemoveUser');
+        this.target = document.querySelector('#Target');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -18,6 +19,26 @@ class Listeners {
     showElement(element){
         console.log(element);
     }
+    
+    targeting (li){
+        li.addEventListener('click' ,function (){
+                if(target === true){
+                    console.log(this);
+                    let li = this;
+                    let LI = li.querySelector('li');
+                    if(LI.className === "To"){
+                        LI.className = "";
+                    }
+                    else
+                    {
+                        LI.className = "To";    
+                    }
+                 
+                }
+            } ,false);
+        return li;
+    }
+    
 }
 let listener = new Listeners();
 listener.showElement(listener.inputText);
@@ -26,6 +47,7 @@ listener.addListener(listener.UserAdd, function (){
         if(name.length === 0)
             {
                 console.log('Nie podałeś Nazwy!');
+                information.changeInformation('Nie podałeś nazwy!');
                 console.log(people)
                 return;
             }
@@ -35,19 +57,18 @@ listener.addListener(listener.UserAdd, function (){
 listener.addListener(listener.showWorkers, function(){
         optionsPeople.showEveryName();
         let arrayDOM = genereteDOM.nameWorkers();    
-        gui.showAllName(arrayDOM);
+        gui.showDOM(arrayDOM);
 })
 listener.addListener(listener.addWork, function (){
     let name = listener.userNameWork.value;
     let workString = listener.workText.value;
     let arrayName = [];
+    
     arrayName.push(name);
     console.log(name, workString);
     console.log(this);
     optionsPeople.addWork(arrayName,workString);
 })
-
-
 listener.addListener(listener.UserWork, function(){
     let UserName = listener.User.value;
     optionsPeople.checkWork(UserName);
@@ -57,6 +78,7 @@ listener.addListener(listener.UserWork, function(){
 
 listener.addListener(listener.allWorks, function (){
     console.log(this);
+    
     let ArrayDOM = genereteDOM.allWorks();
     gui.showDOM(ArrayDOM);
 })
@@ -68,6 +90,12 @@ listener.addListener(listener.removeUser, function (){
         return;
     }
     optionsPeople.removeUser(name);
+})
+
+listener.addListener(listener.target , function(){
+    console.log(this);
+    target = true;
+    
 })
 
 
