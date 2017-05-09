@@ -15,6 +15,16 @@ class Gui {
             ol.innerHTML += nameList;
         }
     }
+    
+    
+    showDOM(Array){
+        this.clear();
+        let  ol = document.querySelector('#listOfElements');
+        for(let i=0; i<Array.length; i++){
+            let nameList = Array[i]
+            ol.innerHTML += nameList;
+        }
+    }
     clear () {
     let  ol = document.querySelector('#listOfElements');
     ol.innerHTML = "";
