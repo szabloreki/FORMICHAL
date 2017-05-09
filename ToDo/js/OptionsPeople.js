@@ -3,6 +3,7 @@ class OptionsPeople {
         let human = new PEOPLE(name);
         people.push(human);
         console.log(people);
+        information.changeInformation('Dodano pracownika ' + name + '!');
      }   
  showName (){
       for(let i =0; i<people.length; i++){
@@ -16,12 +17,14 @@ class OptionsPeople {
                     if(people[number].checkIfWorkExisted(work, people[number].work))
                         {
                             people[number].work.push(work);
-                            console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work)  
+                            console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work);
+                            information.changeInformation(people[number].name + ' dostał pracę!');
+                            return;
                         }
                 }   
           }
-      }      
-  }
+      }
+ }
  checkWork (name){
     for( let i =0; i<people.length; i++){
         if(people[i].name === name){
@@ -59,10 +62,11 @@ class OptionsPeople {
          if(people[i].name === name){
              people.splice(i, 1);
              console.log(people);
-             break;
+             information.changeInformation('Usunięto pracownika!');
              return;
          }
      }
+     information.changeInformation('Użytkownik, którego podałeś nie istnieje!');
      console.log('Użytkownik, którego podałeś nie istnieje!');
  }
 }
