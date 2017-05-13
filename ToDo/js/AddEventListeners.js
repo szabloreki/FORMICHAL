@@ -71,7 +71,14 @@ class Listeners {
         optionsPeople.addWork(names, work)
                 } 
     }
-}
+    checkwhoIsDoingWork (li){
+        li.addEventListener('click', function (){
+            let work = li.textContent;
+            let whoIsDoingWork = optionsPeople.checkWhoisDoingWork(work);
+            gui.showNameWhenUserIsCheckingWhoIsDoingWork(whoIsDoingWork);
+        },false)
+    }
+} 
 let listener = new Listeners();
 listener.showElement(listener.inputText);
 listener.addListener(listener.UserAdd, function (){

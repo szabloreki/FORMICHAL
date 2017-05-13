@@ -11,7 +11,6 @@ class GenerateDOM {
             }
             return nameArrayDOM;
         }
-        //Znajdź błąd nie zwraca tablicy poprawnie przy większej ilośći zadań kopiuje je (więcej niż 2)
         work (name){
         let workArray = [];
         for( let i =0; i<people.length; i++){
@@ -35,8 +34,9 @@ class GenerateDOM {
                     console.log(work);
                     console.log(work);
                     if(works != ""){
-                    let string = `<li class ="workers">${work}</li>`;
-                     allWorks.push(string);
+                    let li = document.createElement('li');
+                    li.innerHTML = work;    
+                    allWorks.push(li);
                     }   
                 }    
           }

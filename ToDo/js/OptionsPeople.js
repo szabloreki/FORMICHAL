@@ -45,15 +45,22 @@ class OptionsPeople {
     console.log('Nie ma nikogo o takim imienu');
 }
  checkWhoisDoingWork(work){
+    let whoDoingWork = []; 
     for(let i =0; i<people.length; i++){
         for (let works = 0; works < people[i].work.length; works ++){
             if(people[i].work[works] === work){
-                console.log(people[i].name + ' aktualnie wykonuje ta pracę');
+                console.log(people[i].name + 'aktualnie wykonuje ta pracę');
+                let whoIsdoing =  people[i].name + ' aktualnie wykonuje ta pracę';
+                let li = document.createElement('li');
+                li.textContent = whoIsdoing;
+                whoDoingWork.push(li);
                 continue;
+                }
             }
         }
+    return whoDoingWork;
     }
-}
+
  showEveryName (){
     for(let i =0; i<people.length; i++){
         console.log(people[i].name);
