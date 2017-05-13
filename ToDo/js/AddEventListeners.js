@@ -13,6 +13,7 @@ class Listeners {
         this.removeUser = document.querySelector('#RemoveUser');
         this.target = document.querySelector('#Target');
         this.targetLoop = document.querySelector('#TargetLoop');
+        this.multipleWork = document.querySelector('#multipleWork');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -53,6 +54,22 @@ class Listeners {
                 } 
         }
     }     
+    }
+    addMultipleWork (){
+        if(target){
+        let ol = document.querySelector('#listOfElements');
+        let work = this.workText.value;
+        let names =[];
+        console.log(work);
+        for(let i = 0; i<ol.children.length; i++){
+        if (ol.children[i].classList.contains("Targeted")){
+                    let name = ol.children[i].textContent;
+                    names.push(name);
+                } 
+        }
+        console.log(names);
+        optionsPeople.addWork(names, work)
+                } 
     }
 }
 let listener = new Listeners();
@@ -109,6 +126,16 @@ listener.addListener(listener.targetLoop, function (){
     loop = true;
     target = false;
     
+});
+listener.addListener(listener.multipleWork, function (){
+    if(target){
+    listener.addMultipleWork();
+    console.log('ok');
+    }
+    else
+    {
+        information.changeInformation('Nie masz nic zaznaczone!');
+    }
 });
 
 

@@ -19,7 +19,7 @@ class OptionsPeople {
                             people[number].work.push(work);
                             console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work);
                             information.changeInformation(people[number].name + ' dostał pracę!');
-                            return;
+                            
                         }
                 }   
           }
