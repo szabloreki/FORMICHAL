@@ -26,11 +26,14 @@ class OptionsPeople {
       }
  }
  checkWork (name){
+    let toReturn = "Undefineted" 
     for( let i =0; i<people.length; i++){
         if(people[i].name === name){
             console.log(people[i].name + ' ma robotę: ' + people[i].work);
+           toReturn = people[i].work;
         }
     }
+    return toReturn;
 }
  checkIfExisting (name){
       for( let i =0; i<people.length; i++){
@@ -69,5 +72,18 @@ class OptionsPeople {
      information.changeInformation('Użytkownik, którego podałeś nie istnieje!');
      console.log('Użytkownik, którego podałeś nie istnieje!');
  }
+    
+    
+ getNameWhichList (){
+     let list = document.querySelector('#listOfElements');
+     let nameArray = [];
+     
+
+ }
+    
+    
+    
+    
+    
 }
 let optionsPeople =  new OptionsPeople();
