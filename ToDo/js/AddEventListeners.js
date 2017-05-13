@@ -12,33 +12,48 @@ class Listeners {
         this.removeUserText = document.querySelector('#RemoveUserText');
         this.removeUser = document.querySelector('#RemoveUser');
         this.target = document.querySelector('#Target');
+        this.targetLoop = document.querySelector('#TargetLoop');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
     }
     showElement(element){
         console.log(element);
-    }
-    
+    }   
     targeting (li){
         li.addEventListener('click' ,function (){
                 if(target === true){
                     console.log(this);
                     let li = this;
-                    let LI = li.querySelector('li');
-                    if(LI.className === "To"){
-                        LI.className = "";
+                    if(li.className === "Targeted"){
+                        li.className = "";
                     }
                     else
                     {
-                        LI.className = "To";    
+                        li.className = "Targeted";    
                     }
-                 
                 }
-            } ,false);
+                if(loop === true){
+                    gui.showOneWorker(this);
+                }
+        } ,false);
         return li;
+    }   
+    removeMultiple (){
+    if(target){
+        let ol = document.querySelector('#listOfElements');
+        for(let i = 0; i<ol.children.length; i++){
+        if (ol.children[i].classList.contains("Targeted")) {
+                     console.log(ol.children[i]);
+                     let name = ol.children[i].textContent;
+                     console.log(name);
+                     optionsPeople.removeUser(name);
+                     ol.removeChild(ol.children[i]);
+                     continue;
+                } 
+        }
+    }     
     }
-    
 }
 let listener = new Listeners();
 listener.showElement(listener.inputText);
@@ -53,12 +68,12 @@ listener.addListener(listener.UserAdd, function (){
             }
         optionsPeople.addHuman(name);
         console.log(people);
-})
+});
 listener.addListener(listener.showWorkers, function(){
         optionsPeople.showEveryName();
         let arrayDOM = genereteDOM.nameWorkers();    
         gui.showDOM(arrayDOM);
-})
+});
 listener.addListener(listener.addWork, function (){
     let name = listener.userNameWork.value;
     let workString = listener.workText.value;
@@ -68,34 +83,32 @@ listener.addListener(listener.addWork, function (){
     console.log(name, workString);
     console.log(this);
     optionsPeople.addWork(arrayName,workString);
-})
+});
 listener.addListener(listener.UserWork, function(){
     let UserName = listener.User.value;
     optionsPeople.checkWork(UserName);
     let arrayWork = genereteDOM.work(UserName);
     gui.showWork(arrayWork);
-})
-
+});
 listener.addListener(listener.allWorks, function (){
     console.log(this);
     
     let ArrayDOM = genereteDOM.allWorks();
-    gui.showDOM(ArrayDOM);
-})
-
+    gui.showWork(ArrayDOM);
+});
 listener.addListener(listener.removeUser, function (){
-    let name = listener.removeUserText.value;
-    if(name === ""){
-        console.log('Nie podałeś nic!');
-        return;
-    }
-    optionsPeople.removeUser(name);
-})
-
+    listener.removeMultiple();
+});
 listener.addListener(listener.target , function(){
     console.log(this);
-    target = true;
+    loop = false;
+    target = true;   
+});
+listener.addListener(listener.targetLoop, function (){
+    console.log(this);
+    loop = true;
+    target = false;
     
-})
+});
 
 
