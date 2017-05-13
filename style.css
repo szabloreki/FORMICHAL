@@ -1,0 +1,69 @@
+body
+{   /* ========================================================
+ This pattern is downloaded from www.subtlepatterns.com 
+ If you need more, that's where to */
+    margin: 0;
+    padding: 0;
+    background-image: url(img/pow-star.png);
+    font-size: 20px;
+}
+#container
+{
+   	margin-left: auto;
+	margin-right: auto;
+    width: 1000px;
+    min-height: 100px;
+    background-color: wheat;
+    text-align: center;
+    margin-top: 200px;
+}
+.btn
+{
+    
+}
+.workers
+{
+    border-radius: 10px green;
+    background-color: #333444;
+    padding: 10px 0;
+    border: 1px solid grey;
+    
+}
+.Targeted
+{
+    background-color: greenyellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
