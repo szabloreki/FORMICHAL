@@ -30,15 +30,15 @@ class GenerateDOM {
         let allWorks = [];    
             for(let i=0; i < people.length; i++){
             let  works = people[i].work;
-            for(let i =0; i < works.length; i ++){
-                let work = works[i]
-                console.log(work);
-                console.log(work);
-                if(works != ""){
-                let string = `<li class ="workers">${work}</li>`;
-                 allWorks.push(string);
-                }   
-            }    
+                for(let i =0; i < works.length; i ++){
+                    let work = works[i]
+                    console.log(work);
+                    console.log(work);
+                    if(works != ""){
+                    let string = `<li class ="workers">${work}</li>`;
+                     allWorks.push(string);
+                    }   
+                }    
           }
             return allWorks;
         }
