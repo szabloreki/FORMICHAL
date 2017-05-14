@@ -19,18 +19,21 @@ class OptionsPeople {
                             people[number].work.push(work);
                             console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work);
                             information.changeInformation(people[number].name + ' dostał pracę!');
-                            return;
+                            
                         }
                 }   
           }
       }
  }
  checkWork (name){
+    let toReturn = "Undefineted" 
     for( let i =0; i<people.length; i++){
         if(people[i].name === name){
             console.log(people[i].name + ' ma robotę: ' + people[i].work);
+           toReturn = people[i].work;
         }
     }
+    return toReturn;
 }
  checkIfExisting (name){
       for( let i =0; i<people.length; i++){
@@ -42,21 +45,27 @@ class OptionsPeople {
     console.log('Nie ma nikogo o takim imienu');
 }
  checkWhoisDoingWork(work){
+    let whoDoingWork = []; 
     for(let i =0; i<people.length; i++){
         for (let works = 0; works < people[i].work.length; works ++){
             if(people[i].work[works] === work){
-                console.log(people[i].name + ' aktualnie wykonuje ta pracę');
+                console.log(people[i].name + 'aktualnie wykonuje ta pracę');
+                let whoIsdoing =  people[i].name + ' aktualnie wykonuje ta pracę';
+                let li = document.createElement('li');
+                li.textContent = whoIsdoing;
+                li.classList = "workers";
+                whoDoingWork.push(li);
                 continue;
+                }
             }
         }
+    return whoDoingWork;
     }
-}
  showEveryName (){
     for(let i =0; i<people.length; i++){
         console.log(people[i].name);
     } 
 }
-    
  removeUser (name){
      for(let i=0; i < people.length; i++){
          if(people[i].name === name){
@@ -77,10 +86,5 @@ class OptionsPeople {
      
 
  }
-    
-    
-    
-    
-    
 }
 let optionsPeople =  new OptionsPeople();
