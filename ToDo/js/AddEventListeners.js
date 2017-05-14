@@ -1,19 +1,20 @@
 class Listeners {
     constructor () {
-        this.UserAdd = document.querySelector('#AddUser');
+        this.userAdd = document.querySelector('#AddUser');
         this.inputText = document.querySelector('#AddUserText');
         this.showWorkers = document.querySelector('#CheckWorkers');
         this.userNameWork = document.querySelector('#UserNameWork');
         this.workText = document.querySelector('#WorkText');
         this.addWork = document.querySelector('#AddWork');
         this.User = document.querySelector('#User');
-        this.UserWork = document.querySelector('#CheckUser');
+        this.userWork = document.querySelector('#UserWork');
         this.allWorks = document.querySelector('#AllWorks');
         this.removeUserText = document.querySelector('#RemoveUserText');
         this.removeUser = document.querySelector('#RemoveUser');
         this.target = document.querySelector('#Target');
         this.targetLoop = document.querySelector('#TargetLoop');
         this.multipleWork = document.querySelector('#multipleWork');
+        this.removeUsers = document.querySelector('#RemoveUsers');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -27,7 +28,7 @@ class Listeners {
                     console.log(this);
                     let li = this;
                     if(li.className === "Targeted"){
-                        li.className = "";
+                        li.className = "workers";
                     }
                     else
                     {
@@ -43,6 +44,9 @@ class Listeners {
     removeMultiple (){
     if(target){
         let ol = document.querySelector('#listOfElements');
+        if(target){
+            information.changeInformation('Okej!...')
+        }
         for(let i = 0; i<ol.children.length; i++){
         if (ol.children[i].classList.contains("Targeted")) {
                      console.log(ol.children[i]);
@@ -53,7 +57,10 @@ class Listeners {
                      continue;
                 } 
         }
-    }     
+    }
+}
+    removeOne (name){
+        optionsPeople.removeUser(name);
     }
     addMultipleWork (){
         if(target){
@@ -80,8 +87,7 @@ class Listeners {
     }
 } 
 let listener = new Listeners();
-listener.showElement(listener.inputText);
-listener.addListener(listener.UserAdd, function (){
+listener.addListener(listener.userAdd, function (){
         let name = listener.inputText.value;
         if(name.length === 0)
             {
@@ -90,6 +96,10 @@ listener.addListener(listener.UserAdd, function (){
                 console.log(people)
                 return;
             }
+        else if(optionsPeople.checkIfExisting(name)){
+            information.changeInformation('Taki użytkownik już istnieje!');
+            return;
+        }
         optionsPeople.addHuman(name);
         console.log(people);
 });
@@ -108,7 +118,7 @@ listener.addListener(listener.addWork, function (){
     console.log(this);
     optionsPeople.addWork(arrayName,workString);
 });
-listener.addListener(listener.UserWork, function(){
+listener.addListener(listener.userWork, function(){
     let UserName = listener.User.value;
     optionsPeople.checkWork(UserName);
     let arrayWork = genereteDOM.work(UserName);
@@ -121,15 +131,19 @@ listener.addListener(listener.allWorks, function (){
     gui.showWork(ArrayDOM);
 });
 listener.addListener(listener.removeUser, function (){
-    listener.removeMultiple();
+    let name = listener.removeUserText.value;
+    listener.removeOne(name);
 });
 listener.addListener(listener.target , function(){
-    console.log(this);
+    let button = this;
+    button.style.backgroundColor = "#66DF46";
+    listener.targetLoop.style.backgroundColor = "";
     loop = false;
-    target = true;   
+    target = true;
 });
 listener.addListener(listener.targetLoop, function (){
-    console.log(this);
+    listener.target.style.backgroundColor = "";
+    listener.targetLoop.style.backgroundColor = "#66DF46"
     loop = true;
     target = false;
     
@@ -144,5 +158,8 @@ listener.addListener(listener.multipleWork, function (){
         information.changeInformation('Nie masz nic zaznaczone!');
     }
 });
+listener.addListener(listener.removeUsers, function (){
+        listener.removeMultiple();
+})
 
 

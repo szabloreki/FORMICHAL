@@ -12,60 +12,47 @@
     <link rel="stylesheet" href="style-Lists.css" type="text/css" />
 </head>
 <body>
-	<div id="container" style = "margin-right: auto;">
-        
-    <form>
-        
-        
-        
-        
+	<div id="container" >
+    <div id = "Information">
+    </div>       
+    <div id = "menu">
+     <form style = "margin-top: 5px;">
         Wpisz Użytkownika do dodania <input type = "text"  id= "AddUserText">  <input type = "button" value = "Dodaj" id = "AddUser">
+     </form>   
+     <form>
         dla użytkownika  <input type = "text" id ="UserNameWork" >
         dodaj pracę  <input type = "text" id="WorkText" placeholder="co ma zrobić?"> <input type = "button" id = "AddWork" value = "Dodaj">
-        Sprawdź jaką pracę wykonuje, pracownik <input type = "text"  id ="User">  <input type = "button" value = "Sprawdź" id="CheckUser">
-        Usuń pracownika <input type = "text"  id ="RemoveUserText">  <input type = "button" value = "Usuń" id="RemoveUser">
-
-
-        
-        
-        
-        
-        
-        
-    </form> 
-    <form>
-        
-        
-        
-        
-           
+    </form>   
+     <form>
+    Sprawdź jaką pracę wykonuje, pracownik <input type = "text"  id ="User">  <input type = "button" value = "Sprawdź" id="UserWork">
     </form>  
-   
-      
-        
+    <form>
+        Usuń pracownika <input type = "text"  id ="RemoveUserText">  <input type = "button" value = "Usuń" id="RemoveUser">
+    </form>      
      <form> 
         <input type = "button" value = "Pokaż wszystkich pracowników" id = "CheckWorkers">
     </form> 
     <form> 
         <input type = "button" value = "Pokaż wykonywane prace" id ="AllWorks">
-    </form> 
- 
+    </form>
+    <form>
+    <input type = "button" value = "Podglądnij" id="TargetLoop">
+    </form>   
     <form> 
-          Możesz użyć, zaznacz i wybrać jedną z opcji <input type = "button" value = "Zaznacz" id="Target">
-    </form> 
-    <form> 
-           <input type = "button" value = "Loop" id="TargetLoop">
-    </form> 
-    <form> 
-           <input type = "button" value = "MulitpleWork" id="multipleWork">
-    </form> 
-    <div id = "Information">
-    
+    tylko gdy jest: <input type = "button" value = "Zaznacz" id="Target">
+    </form>
+    <form>
+        dodaj pracę  <input type = "text" id="WorkText" placeholder="co ma zrobić?"> <input type = "button"  id= "multipleWork" value = "DodajPracęGrupie">
+    </form>
+     <form>
+        Usuń Grupę <input type = "button" value = "Usuń" id="RemoveUsers">
+    </form>
     </div>
     <div id = 'content'>
         <ol id ="listOfElements">
         </ol>
-    </div>    
+    </div>
+    <div style = "clear: both;"> </div>    
     </div>
 </body>
     <script src ="js/AddEventListeners.js"> </script>

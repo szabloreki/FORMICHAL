@@ -36,10 +36,12 @@ class OptionsPeople {
     return toReturn;
 }
  checkIfExisting (name){
+      let bool = false
       for( let i =0; i<people.length; i++){
         if(people[i].name === name){
             console.log(people[i].name + ' istnieje');
-                    return;
+            bool = true;
+            return bool;
         }
     }    
     console.log('Nie ma nikogo o takim imienu');
@@ -53,6 +55,7 @@ class OptionsPeople {
                 let whoIsdoing =  people[i].name + ' aktualnie wykonuje ta pracę';
                 let li = document.createElement('li');
                 li.textContent = whoIsdoing;
+                li.classList = "workers";
                 whoDoingWork.push(li);
                 continue;
                 }
@@ -60,37 +63,21 @@ class OptionsPeople {
         }
     return whoDoingWork;
     }
-
  showEveryName (){
     for(let i =0; i<people.length; i++){
         console.log(people[i].name);
     } 
 }
-    
  removeUser (name){
      for(let i=0; i < people.length; i++){
          if(people[i].name === name){
              people.splice(i, 1);
              console.log(people);
-             information.changeInformation('Usunięto pracownika!');
+             information.changeInformation(`Usunięto pracownika ${name}' !` );
              return;
          }
      }
-     information.changeInformation('Użytkownik, którego podałeś nie istnieje!');
-     console.log('Użytkownik, którego podałeś nie istnieje!');
- }
-    
-    
- getNameWhichList (){
-     let list = document.querySelector('#listOfElements');
-     let nameArray = [];
-     
-
- }
-    
-    
-    
-    
-    
+     information.changeInformation('Nie ma takiego użytkownika!');
+            }          
 }
 let optionsPeople =  new OptionsPeople();

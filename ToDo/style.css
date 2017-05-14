@@ -4,36 +4,65 @@ body
  If you need more, that's where to */
     margin: 0;
     padding: 0;
-    background-image: url(img/pow-star.png);
+    background-image: url(img/restaurant.png);
     font-size: 20px;
 }
 #container
 {
-   	margin-left: auto;
 	margin-right: auto;
-    width: 1000px;
     min-height: 100px;
-    background-color: wheat;
     text-align: center;
     margin-top: 200px;
 }
-.btn
+#menu
 {
-    
+    float:left;
+    -webkit-box-shadow: 7px 9px 68px 8px rgba(0,0,0,0.45);
+    -moz-box-shadow: 7px 9px 68px 8px rgba(0,0,0,0.45);
+    box-shadow: 4px 5px 5px 8px rgba(0,0,0,0.45);
+    border-radius: 5px;
+    background-color:  #E7F2F8;
+    position: sticky;
+    top: 10px;
+    left: 0px;
+    width: 350px;
 }
 .workers
-{
-    border-radius: 10px green;
-    background-color: #333444;
+{  
+    background-color: #EEFCEA;
     padding: 10px 0;
-    border: 1px solid grey;
-    
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-left: 320px;
+    list-style: none;
+    width: 800px;
+    text-align: center;
+    opacity: 0.7;
+}
+.workers:hover
+{
+    background-color: #DDEBD9;
+    opacity: 1;
 }
 .Targeted
 {
-    background-color: greenyellow;
+    background-color: #66DF46;
+    padding: 10px 0;
+    margin-top: 5px;
+    border-radius: 10px;
+    margin-left: 320px;
+    list-style: none;
+    width: 800px;
+    text-align: center;
+    opacity: 0.7;
 }
-
+#Information
+{
+    
+    position: absolute;
+    top: 5px;
+    left: 215px;
+}
 
 
 
