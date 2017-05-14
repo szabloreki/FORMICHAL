@@ -60,8 +60,5 @@ class Gui {
             ol.appendChild(nameList);
         }
     }
-    
-    
-    
 };
 let gui = new Gui();
