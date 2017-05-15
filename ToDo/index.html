@@ -45,8 +45,14 @@
     <form>
         dodaj pracę  <input type = "text" id="WorkText" placeholder="co ma zrobić?"> <input type = "button"  id= "multipleWork" value = "DodajPracęGrupie">
     </form>
-     <form>
+    <form>
         Usuń Grupę <input type = "button" value = "Usuń" id="RemoveUsers">
+    </form> 
+    <form>
+        Zapisz: <input type = "button" value = "pracownicy" id="saveWorkers">
+    </form>
+    <form>
+        Wczytaj: <input type = "button" value = "pracownicy" id="loadWorkers">
     </form>
     </div>
     <div id = 'content'>
@@ -57,6 +63,7 @@
     </div>
 </body>
     <script src ="js/AddEventListeners.js"> </script>
+    <script src= "js/DataBaseJson.js"></script>
     <script src = "js/explorel.js"></script>
     <script src ="js/People.js"> </script>
     <script src = "js/GenerateDOM.js"></script>

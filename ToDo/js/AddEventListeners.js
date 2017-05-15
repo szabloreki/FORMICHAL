@@ -16,6 +16,8 @@ class Listeners {
         this.multipleWork = document.querySelector('#multipleWork');
         this.removeUsers = document.querySelector('#RemoveUsers');
         this.explorel = document.querySelector('#explorel')
+        this.saveWorkers = document.querySelector('#saveWorkers');
+        this.loadWorkers = document.querySelector('#loadWorkers');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -174,4 +176,11 @@ listener.addListener(listener.multipleWork, function (){
 });
 listener.addListener(listener.removeUsers, function (){
         listener.removeMultiple();
+})
+
+listener.addListener(listener.saveWorkers, function (){
+    dataBase.save();
+})
+listener.addListener(listener.loadWorkers, function (){
+    dataBase.load();
 })
