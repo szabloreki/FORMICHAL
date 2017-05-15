@@ -5,6 +5,7 @@ class Listeners {
         this.showWorkers = document.querySelector('#CheckWorkers');
         this.userNameWork = document.querySelector('#UserNameWork');
         this.workText = document.querySelector('#WorkText');
+        this.workTextMulitple = document.querySelector('#WorkTextMultiple')
         this.addWork = document.querySelector('#AddWork');
         this.User = document.querySelector('#User');
         this.userWork = document.querySelector('#UserWork');
@@ -68,7 +69,7 @@ class Listeners {
     addMultipleWork (){
         if(target){
         let ol = document.querySelector('#listOfElements');
-        let work = this.workText.value;
+        let work = this.workTextMulitple.value;
         let names =[];
         console.log(work);
         for(let i = 0; i<ol.children.length; i++){
@@ -142,8 +143,10 @@ listener.addListener(listener.userWork, function(){
 });
 listener.addListener(listener.allWorks, function (){
     console.log(this);
-    
     let ArrayDOM = genereteDOM.allWorks();
+    console.log(ArrayDOM);
+    ArrayDOM.sort();
+    console.log(ArrayDOM);
     gui.showWork(ArrayDOM);
 });
 listener.addListener(listener.removeUser, function (){
@@ -171,13 +174,12 @@ listener.addListener(listener.multipleWork, function (){
     }
     else
     {
-        information.changeInformation('Nie masz nic zaznaczone!');
+        information.changeInformation('Nie masz zaznaczenia!');
     }
 });
 listener.addListener(listener.removeUsers, function (){
         listener.removeMultiple();
 })
-
 listener.addListener(listener.saveWorkers, function (){
     dataBase.save();
 })

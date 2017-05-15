@@ -11,13 +11,11 @@ listener.addOnKey(listener.explorel, function (){
 });
 listener.addOfFocus(listener.explorel, function (){
         gui.clear();
-        console.log('a');
 });
 listener.addOnFocus(listener.explorel, function (){
         optionsPeople.showEveryName();
         let arrayDOM = genereteDOM.nameWorkers();    
         gui.showDOM(arrayDOM)
-        console.log('a');
 });
 
 

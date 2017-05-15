@@ -19,7 +19,6 @@ class OptionsPeople {
                             people[number].work.push(work);
                             console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work);
                             information.changeInformation(people[number].name + ' dostał pracę!');
-                            
                         }
                 }   
           }
@@ -80,9 +79,7 @@ class OptionsPeople {
      information.changeInformation('Nie ma takiego użytkownika!');
             }
   showWhenExplorel(name){
-      
       let arrayName = [];
-      
       if(name.length === 0 ){
           return arrayName;
       }
