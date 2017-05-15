@@ -79,28 +79,22 @@ class OptionsPeople {
      }
      information.changeInformation('Nie ma takiego użytkownika!');
             }
-    
-    
   showWhenExplorel(name){
-    let nameArrayDOM = [];
-            for(let i=0; i<people.length; i++){
-                for(let nr = 0; i<name.length; nr++){
-                    if(people[i].name.indexOf(name) > -1)
-                        {
-                            let li = document.createElement('li');
-                            li.className = 'workers';
-                            li.innerHTML = name;                
-                            nameArrayDOM.push(li);
-                            continue;
-                        }
-                }
-             
-                
-              
-            }
-            return nameArrayDOM;
-  }
-
-    
+      
+      let arrayName = [];
+      
+      if(name.length === 0 ){
+          return arrayName;
+      }
+      for(let i =0; i< people.length; i++){
+          if(people[i].name.startsWith(name, 0)){
+              let li = document.createElement('li');
+              li.textContent = people[i].name;
+              li.classList = "workers";
+              arrayName.push(li);
+          }
+      }
+      return arrayName;
+  }   
 }
 let optionsPeople =  new OptionsPeople();

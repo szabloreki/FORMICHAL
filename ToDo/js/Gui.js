@@ -16,6 +16,9 @@ class Gui {
         }
     }
     showDOM(Array){
+        if(Array.length === 0){
+            return;
+        }
         this.clear();
         let  ol = document.querySelector('#listOfElements');
         for(let i=0; i<Array.length; i++){
@@ -51,7 +54,6 @@ class Gui {
                      `
         ol.innerHTML += inner;
     }
-    
     showNameWhenUserIsCheckingWhoIsDoingWork(arrayDOM) {
         this.clear();
         let  ol = document.querySelector('#listOfElements');
