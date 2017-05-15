@@ -18,6 +18,3 @@ let people = [];
 let target = null;
 let loop = null;
 
-
-    
-    
