@@ -15,6 +15,7 @@ class Listeners {
         this.targetLoop = document.querySelector('#TargetLoop');
         this.multipleWork = document.querySelector('#multipleWork');
         this.removeUsers = document.querySelector('#RemoveUsers');
+        this.explorel = document.querySelector('#explorel')
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -84,6 +85,19 @@ class Listeners {
             let whoIsDoingWork = optionsPeople.checkWhoisDoingWork(work);
             gui.showNameWhenUserIsCheckingWhoIsDoingWork(whoIsDoingWork);
         },false)
+    }
+    addOnKey (element, Function){
+        element.addEventListener('keyup', Function,false);
+    }
+    addOfFocus (element, Function){
+        element.addEventListener('focusout', Function, false);
+    }
+    addOnFocus (element, Function){
+        element.addEventListener('focus', Function, false);
+    }
+    
+    addOnoOnFocus (element, Function){
+        element.addEventListener('mousein', Function, false);
     }
 } 
 let listener = new Listeners();
@@ -160,6 +174,42 @@ listener.addListener(listener.multipleWork, function (){
 });
 listener.addListener(listener.removeUsers, function (){
         listener.removeMultiple();
+})
+listener.addOnKey(listener.explorel, function (){
+        let text = listener.explorel.value;
+    
+        optionsPeople.showWhenExplorel(text);
+        let looked =  optionsPeople.showWhenExplorel(text);
+        gui.showDOM(looked);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        if(text.length === 0){
+        optionsPeople.showEveryName();
+        let arrayDOM = genereteDOM.nameWorkers();    
+        gui.showDOM(arrayDOM) 
+        }
+})
+listener.addOfFocus(listener.explorel, function (){
+        gui.clear();
+        console.log('a');
+})
+listener.addOnFocus(listener.explorel, function (){
+        optionsPeople.showEveryName();
+        let arrayDOM = genereteDOM.nameWorkers();    
+        gui.showDOM(arrayDOM)      
+})
+listener.addOnoOnFocus(listener.explorel, function (){
+    console.log('ooooooo');
 })
 
 

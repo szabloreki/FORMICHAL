@@ -78,6 +78,29 @@ class OptionsPeople {
          }
      }
      information.changeInformation('Nie ma takiego użytkownika!');
-            }          
+            }
+    
+    
+  showWhenExplorel(name){
+    let nameArrayDOM = [];
+            for(let i=0; i<people.length; i++){
+                for(let nr = 0; i<name.length; nr++){
+                    if(people[i].name.indexOf(name) > -1)
+                        {
+                            let li = document.createElement('li');
+                            li.className = 'workers';
+                            li.innerHTML = name;                
+                            nameArrayDOM.push(li);
+                            continue;
+                        }
+                }
+             
+                
+              
+            }
+            return nameArrayDOM;
+  }
+
+    
 }
 let optionsPeople =  new OptionsPeople();
