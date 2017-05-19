@@ -4,7 +4,7 @@ body
  If you need more, that's where to */
     margin: 0;
     padding: 0;
-    background-image: url(img/restaurant.png);
+    background-image: url(public/img/restaurant.png);
     font-size: 20px;
 }
 #container
